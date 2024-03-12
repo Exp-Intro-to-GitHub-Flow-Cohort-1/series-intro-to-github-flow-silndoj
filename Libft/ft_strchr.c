@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:07:51 by silndoj           #+#    #+#             */
-/*   Updated: 2024/03/11 20:50:33 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:18:39 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *) &s[i]);
 		i++;
 	}
+	if (s[i] == (char) c)
+		return ((char *) &s[i]);
 	return (0);
 }
 //

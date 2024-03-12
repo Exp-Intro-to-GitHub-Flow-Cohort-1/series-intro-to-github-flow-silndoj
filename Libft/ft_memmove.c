@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:13:54 by silndoj           #+#    #+#             */
-/*   Updated: 2024/03/11 16:39:36 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:23:12 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 		return (NULL);
 	else if (dest > src)
 	{
-		while (len > 0)
+		while (len-- > 0)
 		{
 			*((unsigned char *)(dest + len)) = *((unsigned char *)(src + len));
-			len--;
 		}
 	}
 	else

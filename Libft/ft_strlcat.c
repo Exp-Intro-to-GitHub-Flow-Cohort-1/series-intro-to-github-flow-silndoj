@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:34:44 by silndoj           #+#    #+#             */
-/*   Updated: 2024/03/11 19:34:23 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:09:29 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,22 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	j;
 	size_t	srclen;
 	size_t	dstlen;
 
 	srclen = ft_strlen(src);
 	dstlen = ft_strlen(dst);
-	i = dstlen;
-	j = 0;
-	if (dstsize == 0 || dstlen >= dstsize)
+	if (dstlen >= dstsize)
+		dstlen = dstsize;
+	else if (dstlen == dstsize)
 		return (srclen + dstsize);
-	while (src[j] != '\0' && (j <= dstsize - dstlen - 1))
+	else if (srclen < dstsize - dstlen)
+		ft_memcpy(dst + dstlen, src, srclen + 1);
+	else
 	{
-		dst[i] = src[j];
-		i++;
-		j++;
+		ft_memcpy(dst + dstlen, src, dstsize - dstlen - 1);
+		dst[dstsize - 1] = '\0';
 	}
-	dst[i] = '\0';
 	return (dstlen + srclen);
 }
 //

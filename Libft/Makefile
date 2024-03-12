@@ -15,6 +15,7 @@ files = ft_isalnum \
 		ft_toupper \
 		ft_tolower \
 		ft_strrchr \
+		ft_strchr \
 		ft_strncmp \
 		ft_memchr \
 		ft_memcmp \
@@ -38,17 +39,15 @@ Copil	= gcc
 
 CFlags	= -Wall -Wextra -Werror
 
-OUTN	= $(Library).a
-
 CFILES	= $(files:%=%.c)
 
 OFILES	= $(files:%=%.o)
 
-NAME	= $(OUTN)
+NAME	= libft.a 
 
 $(NAME) :
 	$(Copil) $(CFlags) -c $(CFILES) -I./
-	ar -rc $(OUTN) $(OFILES)
+	ar -rc $(NAME) $(OFILES)
 
 all: $(NAME)
 

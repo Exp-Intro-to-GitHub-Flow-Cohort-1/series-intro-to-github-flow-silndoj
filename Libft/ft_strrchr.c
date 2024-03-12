@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:37:27 by silndoj           #+#    #+#             */
-/*   Updated: 2024/03/11 20:51:30 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:57:34 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	char	*temp;
+	char	*flag;
 
-	i = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] == (char) c)
-			temp = ((char *) &s[i]);
-		i++;
+		if (*s == (char) c)
+			flag = (char *) s;
+		s++;
 	}
-	return (temp);
+	if (*s == (char) c)
+		flag = (char *) s;
+	if (!(flag == 0))
+		return (flag);
+	return (0);
 }
 //
 //int main ()
